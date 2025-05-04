@@ -1,376 +1,208 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Conexão Empreendedora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rede Empreendedora da Comunidade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset e base */
     * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
 
-    /* Cabeçalho */
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
     header {
-      background-color: #2e7d32;
-      color: #fff;
-      width: 100%;
-      padding: 1.5rem 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
+      background-color: #004080;
+      color: white;
+      padding: 1rem 2rem;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
+      justify-content: space-between;
+      align-items: center;
     }
-    nav ul li a {
-      color: #c8e6c9;
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
+      margin-left: 1rem;
+      font-weight: 500;
     }
-    nav ul li a:hover {
-      color: #a5d6a7;
+
+    nav a:hover {
       text-decoration: underline;
     }
 
-    main {
-      flex: 1;
-      max-width: 640px;
-      width: 100%;
-      padding: 1.5rem;
+    .hero {
+      background: url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
     }
 
-    section {
-      background: #fff;
-      padding: 1.5rem 1.25rem;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
-    }
-
-    section h2 {
-      margin-top: 0;
+    .hero h2 {
+      font-size: 2rem;
       margin-bottom: 1rem;
-      color: #2e7d32;
-      font-weight: 700;
-      font-size: 1.4rem;
-      border-bottom: 2px solid #a5d6a7;
-      padding-bottom: 0.25rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      color: #004080;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .card h4 {
+      margin-bottom: 0.5rem;
+      color: #004080;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    .form-section {
+      background: #eef2f7;
+      padding: 2rem;
+      border-radius: 8px;
     }
 
     form label {
       display: block;
-      margin: 0.5rem 0 0.25rem;
+      margin-bottom: 0.5rem;
       font-weight: 600;
-      font-size: 0.95rem;
     }
-    form input[type="text"],
-    form input[type="email"],
-    form select,
-    form textarea {
+
+    form input, form textarea, form select {
       width: 100%;
-      padding: 0.5rem 0.75rem;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 1rem;
-      transition: border-color 0.3s ease;
-      resize: vertical;
-      font-family: inherit;
-    }
-    form input[type="text"]:focus,
-    form input[type="email"]:focus,
-    form select:focus,
-    form textarea:focus {
-      border-color: #2e7d32;
-      outline: none;
-      background: #f1f8e9;
-    }
-    form textarea {
-      min-height: 80px;
     }
 
     form button {
-      background-color: #2e7d32;
+      background: #004080;
       color: white;
       border: none;
-      padding: 0.75rem 1.25rem;
-      font-weight: 700;
+      padding: 0.8rem 1.5rem;
       font-size: 1rem;
       border-radius: 4px;
       cursor: pointer;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease;
-      width: 100%;
     }
+
     form button:hover {
-      background-color: #1b5e20;
-    }
-
-    /* Busca e resultados */
-    #buscaInput {
-      padding: 0.5rem 0.75rem;
-      font-size: 1rem;
-      width: calc(100% - 110px);
-      border: 1px solid #ccc;
-      border-radius: 4px 0 0 4px;
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-    #buscaInput:focus {
-      border-color: #2e7d32;
-      background: #f1f8e9;
-    }
-    #btnBuscar {
-      padding: 0.55rem 1rem;
-      font-weight: 700;
-      background-color: #2e7d32;
-      color: white;
-      border: none;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-    #btnBuscar:hover {
-      background-color: #1b5e20;
-    }
-
-    #resultados {
-      margin-top: 1rem;
-    }
-    .vaga-item {
-      border: 1px solid #a5d6a7;
-      padding: 1rem;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      background: #e8f5e9;
-    }
-    .vaga-item h3 {
-      margin: 0 0 0.4rem 0;
-      color: #2e7d32;
-    }
-    .vaga-item p {
-      margin: 0;
-      white-space: pre-wrap;
+      background: #002b5c;
     }
 
     footer {
-      background-color: #2e7d32;
-      color: #c8e6c9;
-      width: 100%;
+      background: #004080;
+      color: white;
       text-align: center;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      user-select: none;
-    }
-
-    /* Responsivo */
-    @media (max-width: 480px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      #buscaInput {
-        width: 100%;
-        border-radius: 4px;
-        margin-bottom: 0.5rem;
-      }
-      #btnBuscar {
-        width: 100%;
-        border-radius: 4px;
-      }
-      form button {
-        width: 100%;
-      }
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Conexão Empreendedora</h1>
+    <h1>Rede Empreendedora</h1>
     <nav>
-      <ul>
-        <li><a href="#cadastro">Cadastro</a></li>
-        <li><a href="#vagas">Publicar Vagas</a></li>
-        <li><a href="#busca">Buscar Vagas</a></li>
-      </ul>
+      <a href="#vagas">Vagas</a>
+      <a href="#cadastro">Cadastrar</a>
+      <a href="#contato">Contato</a>
     </nav>
   </header>
 
-  <main>
-    <section id="cadastro" aria-label="Cadastro de empresas e usuários">
-      <h2>Cadastro de Empresas e Usuários</h2>
-      <form id="formCadastro" autocomplete="off">
-        <label for="nome">Nome completo ou empresa</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome ou nome da empresa" required />
+  <section class="hero">
+    <h2>Conectando Talentos da Comunidade</h2>
+    <p>Uma rede de oportunidades para empreendedores, profissionais e empresas que fazem a diferença.</p>
+  </section>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+  <section class="section" id="vagas">
+    <h3>Últimas Vagas</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Assistente Administrativo</h4>
+        <p>Empresa local busca profissional com experiência em rotinas administrativas. Bairro Central.</p>
+      </div>
+      <div class="card">
+        <h4>Vendedor Externo</h4>
+        <p>Vaga para vendedor com CNH A/B. Região: Zona Oeste. Salário fixo + comissão.</p>
+      </div>
+      <div class="card">
+        <h4>Estágio em TI</h4>
+        <p>Empresa de tecnologia cristã busca estagiário com conhecimentos em HTML, CSS e Python.</p>
+      </div>
+    </div>
+  </section>
 
-        <label for="tipo">Tipo</label>
+  <section class="section" id="cadastro">
+    <h3>Cadastre-se na Rede</h3>
+    <div class="form-section">
+      <form>
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="tipo">Você é:</label>
         <select id="tipo" name="tipo" required>
+          <option value="">Selecione</option>
           <option value="empresa">Empresa</option>
-          <option value="usuario">Usuário</option>
+          <option value="profissional">Profissional</option>
+          <option value="empreendedor">Empreendedor</option>
         </select>
 
-        <button type="submit" aria-label="Cadastrar usuário ou empresa">Cadastrar</button>
+        <label for="mensagem">Fale um pouco sobre sua atividade</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+        <button type="submit">Cadastrar</button>
       </form>
-    </section>
+    </div>
+  </section>
 
-    <section id="vagas" aria-label="Publicação de vagas de emprego">
-      <h2>Publicação de Vagas</h2>
-      <form id="formVaga" autocomplete="off">
-        <label for="titulo">Título da vaga</label>
-        <input type="text" id="titulo" name="titulo" placeholder="Ex: Vendedor, Programador" required />
-
-        <label for="descricao">Descrição da vaga</label>
-        <textarea id="descricao" name="descricao" placeholder="Detalhes da vaga, requisitos e benefícios" required></textarea>
-
-        <button type="submit" aria-label="Publicar vaga de emprego">Publicar Vaga</button>
-      </form>
-    </section>
-
-    <section id="busca" aria-label="Busca de vagas de emprego">
-      <h2>Buscar Vagas</h2>
-      <div style="display:flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-        <input type="text" id="buscaInput" placeholder="Buscar por nicho, localização, serviço..." aria-label="Campo de busca para vagas" />
-        <button id="btnBuscar" type="button" aria-label="Buscar vagas" onclick="buscarVagas()">Buscar</button>
-      </div>
-      <div id="resultados" aria-live="polite"></div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Conexão Empreendedora</p>
+  <footer id="contato">
+    <p>&copy; 2025 Rede Empreendedora da Comunidade | contato@redeempreendedora.com.br</p>
   </footer>
 
-  <script>
-    // Simulação de banco de dados simples para vagas e cadastros (localStorage)
-    const storageKeys = {
-      empresasUsuarios: 'empresasUsuarios',
-      vagas: 'vagas'
-    };
-
-    function getFromStorage(key) {
-      return JSON.parse(localStorage.getItem(key)) || [];
-    }
-
-    function saveToStorage(key, data) {
-      localStorage.setItem(key, JSON.stringify(data));
-    }
-
-    // Cadastro de empresa ou usuário
-    document.getElementById('formCadastro').addEventListener('submit', function(e){
-      e.preventDefault();
-      const nome = this.nome.value.trim();
-      const email = this.email.value.trim();
-      const tipo = this.tipo.value;
-
-      if (!nome || !email || !tipo) {
-        alert('Preencha todos os campos corretamente.');
-        return;
-      }
-
-      const cadastros = getFromStorage(storageKeys.empresasUsuarios);
-
-      // Verifica se email já está cadastrado
-      const existe = cadastros.some(c => c.email.toLowerCase() === email.toLowerCase());
-      if (existe) {
-        alert('Este email já está cadastrado.');
-        return;
-      }
-
-      cadastros.push({ nome, email, tipo });
-      saveToStorage(storageKeys.empresasUsuarios, cadastros);
-
-      alert(`Cadastro de ${tipo === 'empresa' ? 'empresa' : 'usuário'} realizado com sucesso!`);
-      this.reset();
-    });
-
-    // Publicação de vaga
-    document.getElementById('formVaga').addEventListener('submit', function(e){
-      e.preventDefault();
-      const titulo = this.titulo.value.trim();
-      const descricao = this.descricao.value.trim();
-
-      if (!titulo || !descricao) {
-        alert('Preencha todos os campos da vaga.');
-        return;
-      }
-
-      const vagas = getFromStorage(storageKeys.vagas);
-      vagas.push({ titulo, descricao, dataPublicacao: new Date().toISOString() });
-      saveToStorage(storageKeys.vagas, vagas);
-
-      alert('Vaga publicada com sucesso!');
-      this.reset();
-    });
-
-    // Busca de vagas por texto simples
-    function buscarVagas() {
-      const query = document.getElementById('buscaInput').value.trim().toLowerCase();
-      const resultadosDiv = document.getElementById('resultados');
-      resultadosDiv.innerHTML = '';
-
-      if (!query) {
-        resultadosDiv.innerHTML = '<p>Por favor, digite um termo para busca.</p>';
-        return;
-      }
-
-      const vagas = getFromStorage(storageKeys.vagas);
-      const resultados = vagas.filter(vaga => 
-        vaga.titulo.toLowerCase().includes(query) || vaga.descricao.toLowerCase().includes(query)
-      );
-
-      if (resultados.length === 0) {
-        resultadosDiv.innerHTML = `<p>Nenhuma vaga encontrada para "<strong>${query}</strong>"</p>`;
-        return;
-      }
-
-      resultados.forEach(vaga => {
-        const data = new Date(vaga.dataPublicacao);
-        const vagaEl = document.createElement('article');
-        vagaEl.className = 'vaga-item';
-        vagaEl.innerHTML = `
-          <h3>${vaga.titulo}</h3>
-          <p>${vaga.descricao}</p>
-          <small>Publicado em: ${data.toLocaleDateString('pt-BR')}</small>
-        `;
-        resultadosDiv.appendChild(vagaEl);
-      });
-    }
-  </script>
 </body>
 </html>
-
