@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conexão Empreendedora</title>
+  <style>
+    /* Reset e base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #2e7d32;
+      color: #fff;
+      width: 100%;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #a5d6a7;
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      max-width: 640px;
+      width: 100%;
+      padding: 1.5rem;
+    }
+
+    section {
+      background: #fff;
+      padding: 1.5rem 1.25rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
+    }
+
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2e7d32;
+      font-weight: 700;
+      font-size: 1.4rem;
+      border-bottom: 2px solid #a5d6a7;
+      padding-bottom: 0.25rem;
+    }
+
+    form label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+      font-family: inherit;
+    }
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form select:focus,
+    form textarea:focus {
+      border-color: #2e7d32;
+      outline: none;
+      background: #f1f8e9;
+    }
+    form textarea {
+      min-height: 80px;
+    }
+
+    form button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    form button:hover {
+      background-color: #1b5e20;
+    }
+
+    /* Busca e resultados */
+    #buscaInput {
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      width: calc(100% - 110px);
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    #buscaInput:focus {
+      border-color: #2e7d32;
+      background: #f1f8e9;
+    }
+    #btnBuscar {
+      padding: 0.55rem 1rem;
+      font-weight: 700;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    #btnBuscar:hover {
+      background-color: #1b5e20;
+    }
+
+    #resultados {
+      margin-top: 1rem;
+    }
+    .vaga-item {
+      border: 1px solid #a5d6a7;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      background: #e8f5e9;
+    }
+    .vaga-item h3 {
+      margin: 0 0 0.4rem 0;
+      color: #2e7d32;
+    }
+    .vaga-item p {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #2e7d32;
+      color: #c8e6c9;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Responsivo */
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      #buscaInput {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+      }
+      #btnBuscar {
+        width: 100%;
+        border-radius: 4px;
+      }
+      form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Conexão Empreendedora</h1>
+    <nav>
+      <ul>
+        <li><a href="#cadastro">Cadastro</a></li>
+        <li><a href="#vagas">Publicar Vagas</a></li>
+        <li><a href="#busca">Buscar Vagas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="cadastro" aria-label="Cadastro de empresas e usuários">
+      <h2>Cadastro de Empresas e Usuários</h2>
+      <form id="formCadastro" autocomplete="off">
+        <label for="nome">Nome completo ou empresa</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome ou nome da empresa" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+
+        <label for="tipo">Tipo</label>
+        <select id="tipo" name="tipo" required>
+          <option value="empresa">Empresa</option>
+          <option value="usuario">Usuário</option>
+        </select>
+
+        <button type="submit" aria-label="Cadastrar usuário ou empresa">Cadastrar</button>
+      </form>
+    </section>
+
+    <section id="vagas" aria-label="Publicação de vagas de emprego">
+      <h2>Publicação de Vagas</h2>
+      <form id="formVaga" autocomplete="off">
+        <label for="titulo">Título da vaga</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Ex: Vendedor, Programador" required />
+
+        <label for="descricao">Descrição da vaga</label>
+        <textarea id="descricao" name="descricao" placeholder="Detalhes da vaga, requisitos e benefícios" required></textarea>
+
+        <button type="submit" aria-label="Publicar vaga de emprego">Publicar Vaga</button>
+      </form>
+    </section>
+
+    <section id="busca" aria-label="Busca de vagas de emprego">
+      <h2>Buscar Vagas</h2>
+      <div style="display:flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+        <input type="text" id="buscaInput" placeholder="Buscar por nicho, localização, serviço..." aria-label="Campo de busca para vagas" />
+        <button id="btnBuscar" type="button" aria-label="Buscar vagas" onclick="buscarVagas()">Buscar</button>
+      </div>
+      <div id="resultados" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Conexão Empreendedora</p>
+  </footer>
+
+  <script>
+    // Simulação de banco de dados simples para vagas e cadastros (localStorage)
+    const storageKeys = {
+      empresasUsuarios: 'empresasUsuarios',
+      vagas: 'vagas'
+    };
+
+    function getFromStorage(key) {
+      return JSON.parse(localStorage.getItem(key)) || [];
+    }
+
+    function saveToStorage(key, data) {
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+
+    // Cadastro de empresa ou usuário
+    document.getElementById('formCadastro').addEventListener('submit', function(e){
+      e.preventDefault();
+      const nome = this.nome.value.trim();
+      const email = this.email.value.trim();
+      const tipo = this.tipo.value;
+
+      if (!nome || !email || !tipo) {
+        alert('Preencha todos os campos corretamente.');
+        return;
+      }
+
+      const cadastros = getFromStorage(storageKeys.empresasUsuarios);
+
+      // Verifica se email já está cadastrado
+      const existe = cadastros.some(c => c.email.toLowerCase() === email.toLowerCase());
+      if (existe) {
+        alert('Este email já está cadastrado.');
+        return;
+      }
+
+      cadastros.push({ nome, email, tipo });
+      saveToStorage(storageKeys.empresasUsuarios, cadastros);
+
+      alert(`Cadastro de ${tipo === 'empresa' ? 'empresa' : 'usuário'} realizado com sucesso!`);
+      this.reset();
+    });
+
+    // Publicação de vaga
+    document.getElementById('formVaga').addEventListener('submit', function(e){
+      e.preventDefault();
+      const titulo = this.titulo.value.trim();
+      const descricao = this.descricao.value.trim();
+
+      if (!titulo || !descricao) {
+        alert('Preencha todos os campos da vaga.');
+        return;
+      }
+
+      const vagas = getFromStorage(storageKeys.vagas);
+      vagas.push({ titulo, descricao, dataPublicacao: new Date().toISOString() });
+      saveToStorage(storageKeys.vagas, vagas);
+
+      alert('Vaga publicada com sucesso!');
+      this.reset();
+    });
+
+    // Busca de vagas por texto simples
+    function buscarVagas() {
+      const query = document.getElementById('buscaInput').value.trim().toLowerCase();
+      const resultadosDiv = document.getElementById('resultados');
+      resultadosDiv.innerHTML = '';
+
+      if (!query) {
+        resultadosDiv.innerHTML = '<p>Por favor, digite um termo para busca.</p>';
+        return;
+      }
+
+      const vagas = getFromStorage(storageKeys.vagas);
+      const resultados = vagas.filter(vaga => 
+        vaga.titulo.toLowerCase().includes(query) || vaga.descricao.toLowerCase().includes(query)
+      );
+
+      if (resultados.length === 0) {
+        resultadosDiv.innerHTML = `<p>Nenhuma vaga encontrada para "<strong>${query}</strong>"</p>`;
+        return;
+      }
+
+      resultados.forEach(vaga => {
+        const data = new Date(vaga.dataPublicacao);
+        const vagaEl = document.createElement('article');
+        vagaEl.className = 'vaga-item';
+        vagaEl.innerHTML = `
+          <h3>${vaga.titulo}</h3>
+          <p>${vaga.descricao}</p>
+          <small>Publicado em: ${data.toLocaleDateString('pt-BR')}</small>
+        `;
+        resultadosDiv.appendChild(vagaEl);
+      });
+    }
+  </script>
+</body>
+</html>
+
